@@ -15,7 +15,8 @@ public class ProductServiceImpl implements ProductService {
     private ProductRepository repository;
 
     @Override
-    @Transactional(readOnly = true) //transacción: consulta SQL "a todo o nada" (si falla algo, se hace un rollback)
+    @Transactional(readOnly = true) //transacción: consulta SQL "all in or all out" (si falla algo, se hace un
+    // rollback)
     public List<Product> findAll() {
         return (List<Product>) repository.findAll(); //type cast del tipo List<Product> porque sino devuelve Enumerable
     }
